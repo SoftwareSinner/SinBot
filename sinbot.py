@@ -23,7 +23,7 @@ def bot_commands():
     @bot.event
     async def on_member_join(member):
         # 703629076392444001 barbershop channel id
-        embed = discord.Embed(colour=0x95efcc,description=f"Welcome to Villains Only!, You are the {len(list(member.guild.members))} member!")
+        embed = discord.Embed(colour=0x95efcc,description=f"Welcome!, You are the {len(list(member.guild.members))} member!")
         embed.set_thumbnail(url=f"{member.avatar_url}")
         embed.set_author(name=f"{member.name}", icon_url=f"{member.avatar_url}")
         embed.set_footer(text=f"{member.guild}",icon_url=f"{member.guild.icon_url}")
