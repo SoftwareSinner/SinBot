@@ -82,11 +82,7 @@ def bot_commands():
     async def random(ctx):
         async with aiohttp.ClientSession() as cs:
             async with cs.get("https://picsum.photos/400/400") as r:
-                data = await r.json()
-                embed = discord.Embed(title='Random Photo')
-                embed.set_image(url=data['image'])
-                embed.set_footer(text='Source: https://picsum.photos')
-                await ctx.send(embed=embed)
+                await ctx.send(r.url)
 
 
     
