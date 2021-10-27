@@ -6,9 +6,10 @@ from virustotal_python import Virustotal
 import shodan
 
 
-# Bot command actions 
+# Bot command actions function with nested commands 
+
 def bot_commands():
-    
+    # Make sure you create text files for your Virustotal API key and bot token in this same directory this script runs so it can read it. 
     bot = commands.Bot(command_prefix = '+')
     vtotal_key = open("virustotalapikey.txt","r").read()
     token = open("token.txt","r").read()
