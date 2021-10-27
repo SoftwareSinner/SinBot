@@ -1,8 +1,9 @@
-iimport discord
+import discord
 from discord.ext import commands
 import random as r
 import aiohttp
 from virustotal_python import Virustotal
+import shodan
 
 
 # Bot command actions 
@@ -17,17 +18,17 @@ def bot_commands():
     # Ready message for bot client which will output to the terminal showing that its runnning
     @bot.event
     async def on_ready():
-        print(f"SinBot has been summoned from the depths of hell! {bot.user.name}")
+        print(f"SinBot has been summoned from the depths of hell!")
 
     # Displays users that join the channel with a welcome message
     @bot.event
     async def on_member_join(member):
-        # 703629076392444001 barbershop channel id
+        # channel id Change this and hide the id to read from file
         embed = discord.Embed(colour=0x95efcc,description=f"Welcome!, You are the {len(list(member.guild.members))} member!")
         embed.set_thumbnail(url=f"{member.avatar_url}")
         embed.set_author(name=f"{member.name}", icon_url=f"{member.avatar_url}")
         embed.set_footer(text=f"{member.guild}",icon_url=f"{member.guild.icon_url}")
-        barb_chan = bot.get_channel(id=703629076392444001)
+        barb_chan = bot.get_channel(id=<insert channel id here>)
         await barb_chan.send(embed=embed)
 
     # Discord server rules
@@ -77,7 +78,12 @@ def bot_commands():
         vscan = vt.url_scan([urlscanner])
         await ctx.send(vscan)
 
+    #@bot.command()
+    #async def shodan(ctx):
+        #shod = 
 
+
+    # Grabs random Photography Photos 
     @bot.command()
     async def random(ctx):
         async with aiohttp.ClientSession() as cs:
@@ -90,7 +96,5 @@ def bot_commands():
     bot.run(token)
 
 
-
 bot_commands()
-
 
